@@ -64,7 +64,7 @@ function fft(dir,m,x,y) {
       u1 = z;
     }
     c2 = Math.sqrt((1.0 - c1) / 2.0);
-    if (dir == 1)
+    if (dir === 1)
       c2 = -c2;
     c1 = Math.sqrt((1.0 + c1) / 2.0);
   }
@@ -152,19 +152,21 @@ function set_item(x, coord, n, v) {
 
 //Slow sweeping algorithm
 function fft_sweep(dir, n, coord, x, y) {
-  if(n > 1) {
-    for(var i=0; i<x[n-1].length; ++x) {
-      coord[n-1] = i;
-      fft_sweep(dir, n-1, coord, x, y);
+  if(n < coord.length-1) {
+    for(var i=0; i<x[n].length; ++i) {
+      coord[n] = i;
+      fft_sweep(dir, n+1, coord, x, y);
     }
     return;
   }
   for(var i=0; i<x.length; ++i) {
+    coord[n] = i;
     x0[i] = get_item(x, coord, coord.length);
     y0[i] = get_item(y, coord, coord.length);
   }
   fft(dir, bits.log2(x.length), x0, y0);
   for(var i=0; i<x.length; ++i) {
+    coord[n] = i;
     set_item(x, coord, coord.length, x0[i]);
     set_item(y, coord, coord.length, y0[i]);
   }
@@ -184,7 +186,7 @@ function dimension(x) {
 function fftn(dir, x, y) {
   //First, handle easy cases
   var n = dimension(x);
-  switch(x) {
+  switch(n) {
     case 0:
       return;
     case 1:
@@ -201,7 +203,7 @@ function fftn(dir, x, y) {
     fftn(dir, x[i], y[i]);
   }
   realloc(x.length);
-  fft_sweep(dir, n, new Array(n), x, y);
+  fft_sweep(dir, 0, new Array(n), x, y);
 }
 
 module.exports = fftn;
