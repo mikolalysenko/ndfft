@@ -1,6 +1,6 @@
 ndfft
 =====
-n-dimensional radix-2 FFT codes for JavaScript.  Derived from [Paul Bourke's C FFT codes](http://paulbourke.net/miscellaneous/dft/).  This routine is not particularly optimized, but it should get the job done.
+Complex n-dimensional radix-2 FFT codes for JavaScript.  Derived from [Paul Bourke's C FFT codes](http://paulbourke.net/miscellaneous/dft/).  This routine is not particularly optimized, but it should get the job done.
 
 Usage/Install
 =============

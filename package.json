@@ -1,0 +1,34 @@
+{
+  "name": "ndfft",
+  "version": "0.0.0",
+  "description": "n-dimensional fast Fourier transform for JavaScript",
+  "main": "ndfft.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "bit-twiddle": "~0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/ndfft.git"
+  },
+  "keywords": [
+    "fft",
+    "nd",
+    "ndfft",
+    "fourier",
+    "transform",
+    "convolution",
+    "spectral",
+    "spectrum"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "a6005f4f2ab4d56e8a35a4348f925fa13cddd4b7"
+}
